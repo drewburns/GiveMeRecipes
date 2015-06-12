@@ -1,0 +1,9 @@
+<p>show</p>
+<p><%= @user.email %></p>
+<% if @user.recipes.count != 0 %>
+	<ul>
+		<%= render partial: "shared/recipe", collection: @user.recipes %>
+	</ul>
+<% else %>
+	<h3>You have no recipes!</h3>
+<% end %>
