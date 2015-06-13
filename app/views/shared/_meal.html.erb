@@ -1,0 +1,7 @@
+<li class="recipe">
+ <h3>
+ 	<%= meal.recipe.name.capitalize %> - by <a href= <%= user_path(meal.recipe.user) %> >
+ 	 <%= meal.recipe.user.email %> </a><br>
+ 	  for: <%= meal.for_date %>
+ </h3>
+</li>

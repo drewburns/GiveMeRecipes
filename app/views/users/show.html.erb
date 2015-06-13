@@ -2,8 +2,18 @@
 <p><%= @user.email %></p>
 <% if @user.recipes.count != 0 %>
 	<ul>
-		<%= render partial: "shared/recipe", collection: @user.recipes %>
+		<h2>My Recipes:</h2>
+		<%= render partial: "shared/recipe", collection: @user.recipes , locals: {meal: @meal, dates: @dates} %>
 	</ul>
 <% else %>
 	<h3>You have no recipes!</h3>
+<% end %>
+</br>
+<% if @user.meals.count != 0 %>
+	<ul>
+		<h2>My Meals:</h2>
+		<%= render partial: "shared/meal", collection: @meals %>
+	</ul>
+<% else %>
+	<h3>You have no meals!</h3>
 <% end %>
