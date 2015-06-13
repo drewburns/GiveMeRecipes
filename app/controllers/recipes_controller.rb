@@ -3,7 +3,14 @@ class RecipesController < ApplicationController
 	before_action :correct_user! , only: [:edit , :destroy]
 
 	def index
-		@recipes = Recipe.all
+		if user_signed_in?
+			@user = current_user
+			@dates = Meal.new.available_dates(@user)
+			@meal = Meal.new
+			@recipes = Recipe.all
+		else
+			@recipes = Recipe.all
+		end
 	end
 
 	def show

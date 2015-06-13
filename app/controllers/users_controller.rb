@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 	before_action :authenticate_user!, except: :index
 	def show
 		@user = User.find(params[:id])
-		@meals = Meal.where(user_id: params[:id])
+		@meals = Meal.where(user_id: params[:id]).reverse
 		@dates = Meal.new.available_dates(@user)
 		@meal = Meal.new
 	end

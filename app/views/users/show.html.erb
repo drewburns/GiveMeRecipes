@@ -1,5 +1,6 @@
 <p>show</p>
 <p><%= @user.email %></p>
+<%= link_to "Make a new recipe", new_recipe_path %>
 <% if @user.recipes.count != 0 %>
 	<ul>
 		<h2>My Recipes:</h2>

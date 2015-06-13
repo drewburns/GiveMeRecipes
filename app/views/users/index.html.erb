@@ -1,2 +1,11 @@
 <p>Index</p>
-<p><%= current_user.email if current_user != nil%></p>
+<% if user_signed_in? %>
+	<p> Welcome! <%= current_user.email %></p>
+	<%= link_to "Go to my account", current_user %>
+	<%= link_to "Log out", destroy_user_session_path, method: "delete" %>
+<% else %>
+	<%= link_to "Make an account",new_user_registration_path %>
+	<p>Or </p>
+	<%= link_to "Login in" , new_user_session_path %>
+<% end %>
+
