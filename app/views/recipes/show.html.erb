@@ -1,5 +1,8 @@
 <% provide(:title , @recipe.name.capitalize) %>
-<h1><%= @recipe.name %></h1>
+<h3>
+ 	<%= link_to @recipe.name.capitalize, @recipe %> 
+ 	- by <a href= <%= user_path(@recipe.user) %> > <%= @recipe.user.email %> </a>
+ 	</h3>
 <p><%= @recipe.description %></p> </br>
 <p><%= @recipe.ingredients %></p> </br>
 <p><%= @recipe.instructions %></p>

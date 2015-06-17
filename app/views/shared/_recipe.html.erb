@@ -4,7 +4,7 @@
  	- by <a href= <%= user_path(recipe.user) %> > <%= recipe.user.email %> </a>
  	<% if user_signed_in? %>
  		<%= form_for(@meal) do |f| %>
- 			<%= hidden_field_tag(:recipe_id, recipe.id) %> 	
+ 			<%= f.hidden_field :recipe_id, :value => recipe.id %>
  			<%= f.label "Date:" %>
  			<%= f.select(:for_date) do %>
 			  <% @dates.each do |date| -%>
