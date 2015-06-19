@@ -1,21 +1,19 @@
-<p>show</p>
-<p><%= @user.email %></p>
-<%= link_to "Make a new recipe", new_recipe_path %>
-<%= link_to "View recipes", recipes_path %>
+<div class = "large-8 small-12 large-centered columns">
+	<h2>My Recipes:</h2>
 <% if @user.recipes.count != 0 %>
 	<ul>
-		<h2>My Recipes:</h2>
 		<%= render partial: "shared/recipe", collection: @user.recipes , locals: {meal: @meal, dates: @dates} %>
 	</ul>
 <% else %>
-	<h3>You have no recipes!</h3>
+	<h3>You have no recipes :(  <%= link_to "Make some!", new_recipe_path %></h3>
 <% end %>
 </br>
-<% if @user.meals.count != 0 %>
+<h2>My Meals:</h2>
+<% if @user.meals.count == 0 %>
+	<h3>You have no meals :( <%= link_to "Find some!", recipes_path %></h3>
+<% else %>
 	<ul>
-		<h2>My Meals:</h2>
 		<%= render partial: "shared/meal", collection: @meals %>
 	</ul>
-<% else %>
-	<h3>You have no meals!</h3>
 <% end %>
+</div>

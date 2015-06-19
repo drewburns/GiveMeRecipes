@@ -1,0 +1,40 @@
+<div class="contain-to-grid sticky">
+  <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
+    <ul class="title-area">
+      <li class="name">
+      <h1><%= link_to "Give Me Recipes" , root_path %></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+  <% if user_signed_in? %>
+
+    <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class=""><%= link_to "Create Recipe" , new_recipe_path %></li>
+      <li class=""><%= link_to "View Recipes" , recipes_path %></li>
+      <li class="has-dropdown">
+        <a><%= link_to current_user.email , current_user %></a>
+        <ul class="dropdown">
+          <li><%= link_to "Profile" , current_user %></li>
+          <li><%= link_to "Settings" , edit_user_registration_path %> </li>
+          <li ><%= link_to "Logout" , destroy_user_session_path , method: "delete" %></li>
+        </ul>
+      </li>
+    </ul>
+    </section>
+
+  <% else %>
+
+    <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class=""><%= link_to "Sign In" , new_user_session_path %></li>
+      <li class=""><%= link_to "Create Account" , new_user_registration_path %></li>
+    </ul>
+    </section>
+  <% end %>
+
+  </nav>
+</div>

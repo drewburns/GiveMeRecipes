@@ -15,3 +15,52 @@
  *= require foundation_and_overrides
 
  */
+
+
+* {
+	 font-family: 'Raleway', sans-serif;
+}
+
+.recipe_title {
+	border-bottom: 1px solid gray;
+	text-align: center;
+	border-bottom: 5px;
+}
+
+.content {
+	text-align: center;
+	padding-bottom: 9px;
+}
+
+.bottom_border {
+	border-bottom: 1px solid gray;
+}
+
+.content_holder {
+	padding-top: 30px;
+}
+
+li {
+	list-style-type: none;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.recipe {
+	border-bottom: 1px solid gray;
+	border-top: 1px solid gray;
+}
+
+.notice {
+
+}
+
+.alert {
+
+}
+
+.center {
+	text-align: center;
+}

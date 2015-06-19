@@ -1,8 +1,12 @@
 <% provide(:title , @recipe.name.capitalize) %>
-<h3>
- 	<%= link_to @recipe.name.capitalize, @recipe %> 
- 	- by <a href= <%= user_path(@recipe.user) %> > <%= @recipe.user.email %> </a>
- 	</h3>
-<p><%= @recipe.description %></p> </br>
-<p><%= @recipe.ingredients %></p> </br>
-<p><%= @recipe.instructions %></p>
+<div class="large-6 small-12 large-centered columns">
+	<h3 class="recipe_title">
+	 	<%= link_to @recipe.name.capitalize, @recipe %> 
+	 	- by <a href= <%= user_path(@recipe.user) %> > <%= @recipe.user.email %> </a>
+	</h3>
+	<div class="content_holder">
+	<p class="content bottom_border"><b>Description:</b> </br> <%= @recipe.description %></p> </br>
+	<p class="content bottom_border"><b>Ingredients:</b> </br> <%= @recipe.ingredients %></p> </br>
+	<p class="content"><b>Instructions:</b> </br> <%= @recipe.instructions %></p>
+	</div>
+</div>

@@ -1,4 +1,4 @@
-<li class="recipe">
+<li class=" recipe large-8 small-12 large-centered columns">
  <h3>
  	<%= link_to recipe.name.capitalize, recipe %> 
  	- by <a href= <%= user_path(recipe.user) %> > <%= recipe.user.email %> </a>
@@ -11,7 +11,7 @@
 			    <%= content_tag(:option, date.day , value: date) %>
 			  <% end %>
 			<% end %>
- 			<%= f.submit "Add Meal" %>
+ 				<%= f.submit "Add Meal" %>
  		<% end %>
  	<% end %>
  </h3>

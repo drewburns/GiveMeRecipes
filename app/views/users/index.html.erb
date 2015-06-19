@@ -1,12 +1,24 @@
-<p>Index</p>
-<% if user_signed_in? %>
-	<p> Welcome! <%= current_user.email %></p>
-	<%= link_to "Go to my account", current_user %>
-	<%= link_to "Log out", destroy_user_session_path, method: "delete" %>
-<% else %>
-	<%= link_to "Make an account",new_user_registration_path %>
-	<p>Or </p>
-	<%= link_to "Login in" , new_user_session_path %>
-<% end %> 
-
-
+<div class="large-8 small-12 large-centered columns">
+	<h3 class="center">Give Me Recipes: </br>
+	Find. Create. Plan.</h3>
+<ul class="example-orbit" data-orbit>
+  <li>
+    <%=image_tag("examples/beef.jpg", alt: "Example Image")%>
+    <div class="orbit-caption">
+      Beef
+    </div>
+  </li>
+  <li class="active">
+    <%=image_tag("examples/chicken.jpg", alt: "Example Image")%>
+    <div class="orbit-caption">
+      Chicken
+    </div>
+  </li>
+  <li>
+    <%=image_tag("examples/fish.jpg", alt: "Example Image")%>
+    <div class="orbit-caption">
+      Fish
+    </div>
+  </li>
+</ul>
+</div>
