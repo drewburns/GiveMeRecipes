@@ -18,13 +18,14 @@
 
 	<% if @user == current_user %>
 		<h2>My Meals:</h2>
-	<% end %>
 
-<% if @user.meals.count == 0 %>
-	<h3>You have no meals :( <%= link_to "Find some!", recipes_path %></h3>
-<% else %>
-	<ul>
-		<%= render partial: "shared/meal", collection: @meals %>
-	</ul>
-<% end %>
+
+	<% if @user.meals.count == 0 %>
+		<h3>You have no meals :( <%= link_to "Find some!", recipes_path %></h3>
+	<% else %>
+		<ul>
+			<%= render partial: "shared/meal", collection: @meals %>
+		</ul>
+	<% end %>
+	<% end %>
 </div>
