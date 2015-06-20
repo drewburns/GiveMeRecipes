@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
 	before_action :authenticate_user!, only: [:create , :new]
-	before_action :correct_user! , only: [:edit , :destroy]
+	before_action :correct_user! , only: [:edit]
 
 	def index
 		if user_signed_in?
@@ -40,6 +40,7 @@ class RecipesController < ApplicationController
 	end
 
 	def destroy
+		@user = current_user
 		@recipe = Recipe.find(params[:id])
 		@recipe.destroy
 		redirect_to @user , :notice => "Recipe Deleted"

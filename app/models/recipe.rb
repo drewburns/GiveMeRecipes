@@ -1,6 +1,6 @@
 class Recipe < ActiveRecord::Base
 	belongs_to :user
-	has_many :meals
+	has_many :meals , dependent: :destroy
 	mount_uploader :picture, PictureUploader
 	validates :name,  presence: true, length: { maximum: 50 }
 	validates :description,  presence: true, length: { maximum: 140 }

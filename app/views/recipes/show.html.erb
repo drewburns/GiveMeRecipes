@@ -4,7 +4,12 @@
 	 	<%= link_to @recipe.name.capitalize, @recipe %> 
 	 	- by <a href= <%= user_path(@recipe.user) %> > <%= @recipe.user.email %> </a>
 	</h3>
-	<div class="button-container large-4 small-6 large-centered small-centered columns">
+	<div class="small-centered columns small-5 recipe-img large-4 large-centered">
+		<% if @recipe.picture? %>
+	 	<%= image_tag @recipe.picture.url %>
+ 	<% end %>
+ 	</div>
+	<div class="button-container large-4 small-5 large-centered small-centered columns">
 	 		<% if @recipe.user == current_user %>
 	 		<%= link_to "edit" , edit_recipe_path(@recipe), :class => "button tiny radius"  %>	
 	 	  <%= link_to "delete" , @recipe , method: :delete , data: { confirm: "Are you sure" }, :class => "button tiny radius"  %>	
