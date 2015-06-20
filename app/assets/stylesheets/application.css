@@ -54,11 +54,19 @@ ul {
 }
 
 .notice {
-
+	width: 100%;
+	background-color: #68E516;
+	text-align: center;
+	color: black;
+	font-family: 'Raleway', sans-serif; 
 }
 
 .alert {
-
+	text-align: center;
+	color: white;
+	font-family: 'Raleway', sans-serif; 
+	width: 100%;
+  background-color:#FF3C25
 }
 
 .center {

@@ -3,15 +3,16 @@ class MealsController < ApplicationController
 	def create
 		@meal = current_user.meals.build(meal_params)
 		if @meal.save
-			# Flash something
-			redirect_to user_path(current_user)
+			redirect_to user_path(current_user) , :notice => "Meal created!"
 		else
-			# Flash something
-			redirect_to user_path(current_user)
+			redirect_to user_path(current_user) , :alert => "Please Retry"
 		end
 	end
 
-	def delete
+	def destroy
+		@meal = Meal.find(params[:id])
+		@meal.destroy
+		redirect_to current_user
 	end
 
 	private

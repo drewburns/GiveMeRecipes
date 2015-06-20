@@ -2,13 +2,21 @@
  <h3>
  	<%= link_to recipe.name.capitalize, recipe %> 
  	- by <a href= <%= user_path(recipe.user) %> > <%= recipe.user.email %> </a>
+ 	<%= image_tag micropost.picture.url if micropost.picture? %>
+		<div class="button-container large-6 small-8 large-centered small-centered columns">
+	 		<% if recipe.user == current_user %>
+	 		<%= link_to "edit" , edit_recipe_path(recipe), :class => "button tiny radius"  %>	
+	 	  <%= link_to "delete" , recipe , method: :delete , data: { confirm: "Are you sure" }, :class => "button tiny radius"  %>	
+	 		<% end %>
+		</div>
+
  	<% if user_signed_in? %>
  		<%= form_for(@meal) do |f| %>
  			<%= f.hidden_field :recipe_id, :value => recipe.id %>
  			<%= f.label "Date:" %>
  			<%= f.select(:for_date) do %>
 			  <% @dates.each do |date| -%>
-			    <%= content_tag(:option, date.day , value: date) %>
+			    <%= content_tag(:option, date.to_formatted_s(:long_ordinal) , value: date) %>
 			  <% end %>
 			<% end %>
  				<%= f.submit "Add Meal" %>

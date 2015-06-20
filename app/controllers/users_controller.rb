@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 		@meals = Meal.where(user_id: params[:id]).where("for_date > ?", Date.yesterday)
-		@dates = Meal.new.available_dates(@user)
+		@dates = Meal.new.available_dates(current_user)
 		@meal = Meal.new
 	end
 

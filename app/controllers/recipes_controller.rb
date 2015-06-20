@@ -20,11 +20,9 @@ class RecipesController < ApplicationController
 	def create
 		@recipe = current_user.recipes.build(recipe_params)
 		if @recipe.save
-			# Flash something
-			redirect_to recipe_path(@recipe)
+			redirect_to recipe_path(@recipe) , :notice => "Recipe Created!"
 		else
-			# Flash something
-			redirect_to 'recipes/new'
+			redirect_to 'recipes/new' , :alert => "Please retry"
 		end
 	end
 
@@ -33,18 +31,28 @@ class RecipesController < ApplicationController
 	end
 
 	def update
+		@recipe = Recipe.find(params[:id])
+		if @recipe.save
+			redirect_to recipe_path(@recipe) , :notice => "Recipe Updated!"
+		else
+			redirect_to(:back)
+		end
 	end
 
 	def destroy
+		@recipe = Recipe.find(params[:id])
+		@recipe.destroy
+		redirect_to @user , :notice => "Recipe Deleted"
 	end
 
 	def edit
+		@recipe = Recipe.find(params[:id])
 	end
 
 	private
 
 	def recipe_params
-    params.require(:recipe).permit(:name, :description , :ingredients , :instructions)
+    params.require(:recipe).permit(:name, :description , :ingredients , :instructions, :picture)
   end
 
 	def correct_user!

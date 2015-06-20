@@ -3,6 +3,9 @@
  	<%= link_to meal.recipe.name.capitalize, meal.recipe %>
  	 - by <a href= <%= user_path(meal.recipe.user) %> >
  	 <%= meal.recipe.user.email %> </a><br>
- 	  for: <%= meal.for_date %>
+ 	  for: <%= meal.for_date.to_formatted_s(:long_ordinal) %>
+ 	  <% if meal.user == current_user %>
+ 	  <%= link_to "delete" , meal , method: :delete , data: { confirm: "Are you sure" }, :class => "button tiny radius"  %>	
+ 		<% end %>
  </h3>
 </li>

@@ -4,11 +4,13 @@ class Meal < ActiveRecord::Base
 	
 	def available_dates(user)
   	this_week = new_week
+    final_array = []
   	meals = Meal.where("for_date > ?", Date.yesterday).where(user_id: user.id)
     meals_dates = meals.collect {|meal| meal.for_date}
     this_week.each do |day|
-      this_week.delete(day) if meals_dates.include?(day)
+      final_array << day unless meals_dates.include?(day)
     end
+    final_array
   end
 
   def new_week

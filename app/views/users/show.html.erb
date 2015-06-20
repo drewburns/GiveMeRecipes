@@ -1,5 +1,12 @@
+<% provide(:title , @user.email) %>
 <div class = "large-8 small-12 large-centered columns">
-	<h2>My Recipes:</h2>
+
+	<% if @user == current_user %>
+		<h2>My Recipes:</h2>
+	<% else  %>
+		<h2><%= @user.email%>'s Recipes:</h2>
+	<% end %>
+
 <% if @user.recipes.count != 0 %>
 	<ul>
 		<%= render partial: "shared/recipe", collection: @user.recipes , locals: {meal: @meal, dates: @dates} %>
@@ -8,7 +15,11 @@
 	<h3>You have no recipes :(  <%= link_to "Make some!", new_recipe_path %></h3>
 <% end %>
 </br>
-<h2>My Meals:</h2>
+
+	<% if @user == current_user %>
+		<h2>My Meals:</h2>
+	<% end %>
+
 <% if @user.meals.count == 0 %>
 	<h3>You have no meals :( <%= link_to "Find some!", recipes_path %></h3>
 <% else %>

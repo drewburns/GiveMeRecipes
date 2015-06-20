@@ -4,6 +4,12 @@
 	 	<%= link_to @recipe.name.capitalize, @recipe %> 
 	 	- by <a href= <%= user_path(@recipe.user) %> > <%= @recipe.user.email %> </a>
 	</h3>
+	<div class="button-container large-4 small-6 large-centered small-centered columns">
+	 		<% if @recipe.user == current_user %>
+	 		<%= link_to "edit" , edit_recipe_path(@recipe), :class => "button tiny radius"  %>	
+	 	  <%= link_to "delete" , @recipe , method: :delete , data: { confirm: "Are you sure" }, :class => "button tiny radius"  %>	
+	 		<% end %>
+	</div>
 	<div class="content_holder">
 	<p class="content bottom_border"><b>Description:</b> </br> <%= @recipe.description %></p> </br>
 	<p class="content bottom_border"><b>Ingredients:</b> </br> <%= @recipe.ingredients %></p> </br>

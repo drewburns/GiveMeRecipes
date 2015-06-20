@@ -1,3 +1,5 @@
 <% provide(:title, "Recipes") %>
 <h1>Recipes</h1>
+<ul>
 <%= render partial: "shared/recipe", collection: @recipes , locals: {meal: @meal, dates: @dates} %>
+</ul>
