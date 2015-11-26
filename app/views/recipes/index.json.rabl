@@ -1,3 +1,4 @@
-collection @recipes
+
+collection @recipes => :recipes
 
 extends "recipes/show"
