@@ -11,6 +11,10 @@ class RecipesController < ApplicationController
 		else
 			@recipes = Recipe.all
 		end
+		respond_to do |format|
+      format.html
+      format.json
+    end
 	end
 
 	def show
