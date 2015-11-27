@@ -1,5 +1,5 @@
 object @recipe
-attributes :id, :name, :ingredients , :instructions , :picture
+attributes :id, :name, :ingredients , :instructions , :picture ,:description
 
 child :user do
   attributes :id, :email
