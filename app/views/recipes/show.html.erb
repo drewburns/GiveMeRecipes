@@ -5,9 +5,7 @@
 	 	- by <a href= <%= user_path(@recipe.user) %> > <%= @recipe.user.email %> </a>
 	</h3>
 	<div class="small-centered columns small-5 recipe-img large-4 large-centered">
-		<% if @recipe.picture? %>
 	 	<%= image_tag @recipe.picture.url %>
- 	<% end %>
  	</div>
 	<div class="button-container large-4 small-5 large-centered small-centered columns">
 	 		<% if @recipe.user == current_user %>

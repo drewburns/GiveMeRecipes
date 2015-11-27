@@ -15,7 +15,8 @@
 	<%= f.label :instructions %>
 	<%= f.text_area :instructions %>
 
-    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+	<%= f.hidden_field(:picture_cache) %>
+  <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
 
 	<%= f.submit "Create recipe" %>
 <% end %>

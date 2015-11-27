@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'cloudinary'
 gem 'rabl'
 gem 'zeroclipboard-rails'
 gem 'carrierwave',             '0.10.0'
