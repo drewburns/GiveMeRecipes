@@ -3,6 +3,8 @@ class RecipesController < ApplicationController
 	before_action :correct_user! , only: [:edit]
 
 	def index
+		puts "_______________"
+		puts params
 		if user_signed_in?
 			@user = current_user
 			@dates = Meal.new.available_dates(@user)
@@ -52,6 +54,20 @@ class RecipesController < ApplicationController
 
 	def edit
 		@recipe = Recipe.find(params[:id])
+	end
+
+	def search
+		@recipes = []
+		params[:search].split("+").each do |word|
+			result = Recipe.where("name like ?", "%" + word + "%")
+			if result.count > 0
+					result.each do |result|
+						@recipes << result
+					end
+			end
+		end
+		p @recipes
+		render 'search.json.rabl'
 	end
 
 	private
