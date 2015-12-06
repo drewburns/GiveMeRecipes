@@ -23,6 +23,10 @@ class RecipesController < ApplicationController
 		@recipe = Recipe.find(params[:id])
 	end
 
+	def api_post
+
+	end
+
 	def create
 		puts recipe_params
 		@recipe = current_user.recipes.build(recipe_params)
@@ -75,6 +79,10 @@ class RecipesController < ApplicationController
 
 	def recipe_params
     params.require(:recipe).permit(:name, :description , :ingredients , :instructions, :picture, :picture_cache)
+  end
+
+  def api_recipe_params
+  	params.require(:recipe).permit(:name, :description , :ingredients , :instructions, :picture, :picture_cache)
   end
 
 	def correct_user!

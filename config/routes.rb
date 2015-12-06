@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :recipes
   get 'recipes/search/:search' => 'recipes#search'
+  post 'api/recipes' => 'recipes#api_post'
 
   resources :meals, only: [:update, :create , :edit , :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
