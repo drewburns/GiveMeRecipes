@@ -24,6 +24,7 @@ class RecipesController < ApplicationController
 	end
 
 	def create
+		puts recipe_params
 		@recipe = current_user.recipes.build(recipe_params)
 		if @recipe.save
 			redirect_to recipe_path(@recipe) , :notice => "Recipe Created!"
