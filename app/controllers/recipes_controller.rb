@@ -3,8 +3,6 @@ class RecipesController < ApplicationController
 	before_action :correct_user! , only: [:edit]
 
 	def index
-		puts "_______________"
-		puts params
 		if user_signed_in?
 			@user = current_user
 			@dates = Meal.new.available_dates(@user)
@@ -23,9 +21,6 @@ class RecipesController < ApplicationController
 		@recipe = Recipe.find(params[:id])
 	end
 
-	def api_post
-
-	end
 
 	def create
 		puts recipe_params
@@ -81,9 +76,7 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(:name, :description , :ingredients , :instructions, :picture, :picture_cache)
   end
 
-  def api_recipe_params
-  	params.require(:recipe).permit(:name, :description , :ingredients , :instructions, :picture, :picture_cache)
-  end
+
 
 	def correct_user!
 		recipe = Recipe.find(params[:id])

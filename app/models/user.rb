@@ -5,5 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :recipes, dependent: :destroy
   has_many :meals , dependent: :destroy
+  has_many :api_keys
 
 end
