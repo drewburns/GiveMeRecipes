@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
 			@user = current_user
 			@dates = Meal.new.available_dates(@user)
 			@meal = Meal.new
-			@recipes = Recipe.all
+			@recipes = Recipe.all.reverse
 		else
 			@recipes = Recipe.all
 		end
