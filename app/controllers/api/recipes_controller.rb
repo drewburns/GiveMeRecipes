@@ -2,9 +2,11 @@ module Api
 	class RecipesController < ApplicationController
 		respond_to :json
 		require 'base64'
-		# before_filter :restrict_access, only: :create
+		before_filter :restrict_access, only: :create
 
 		def index
+			@recipes = Recipe.all.reverse
+			render "api/index.json.rabl"
 		end
 
 		def create
@@ -23,6 +25,7 @@ module Api
 			render :nothing => true
 		end
 
+
 		private 
 
 		def recipe_params
@@ -32,6 +35,7 @@ module Api
 		def restrict_access
 		  authenticate_or_request_with_http_token do |token, options|
 		    ApiKey.exists?(access_token: token)
+		    p token
 		  end
 		end
 	end

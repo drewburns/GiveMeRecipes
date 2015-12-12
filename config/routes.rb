@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   namespace :api ,  defaults: {format: 'json'} do
     resources :recipes
+    get 'users/:id' => 'users#show'
+    resources :sessions, only: [:create, :destroy]
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
